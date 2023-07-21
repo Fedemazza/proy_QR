@@ -1,0 +1,57 @@
+{% extends 'explorador/main.html' %}
+{% load static %}
+{% block content %}
+
+   
+
+{% include 'explorador/status.html' %} 
+
+<div class="row">
+    <div class="col-md-7">
+        <h5>Listado de QRs</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'crear_qr' '000'%}"> Crear un QR</a>
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Número de Serie</th>
+                    <th>Creador</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>                    
+                </tr>
+                {% for qr in qrs %}
+                    <tr>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'qr' qr.serialnum %}">Ver</a></td>
+                        <td>{{qr.serialnum}}</td>
+                        <td>{{qr.Creador}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_qr' qr.serialnum %}">Editar</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_qr' qr.serialnum %}">Borrar</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <h5>Listado de usuarios</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'logout' %}"> Generar un nuevo usuario </a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha suscripción</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user.username}}</td>
+                        <td>{{user.date_joined}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

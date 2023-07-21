@@ -1,0 +1,28 @@
+
+body{
+    background-color: #ffffff
+    }
+
+#total-qrs{
+        background-color: #4cb4c7;
+    }
+
+#total-users{
+        background-color: #7CD1C0;
+    }
+
+.logo{
+        width: 50%;
+    }
+
+/*    
+.logo{
+    width: 50%;
+    background-color: black;
+}
+
+
+.container-fluid{
+    background-color: black;
+}
+*/

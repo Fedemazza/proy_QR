@@ -1,0 +1,22 @@
+{% extends 'explorador/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}} <!-- el as_p es para que se imprima linea por linea -->
+
+                <input type="submit" name="Submit">
+            </form>
+
+        </div>
+    </div>
+</div>            
+
+{% endblock %}
+
